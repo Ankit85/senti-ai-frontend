@@ -11,7 +11,7 @@ import { BadgeCheckIcon } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="h-screen bg-slate-800">
+    <div className="min-h-screen bg-slate-800">
       <div className="p-4 container max-w-2xl space-y-4">
         <h1 className="text-3xl font-bold text-white">Comment Analysis Tool</h1>
 
@@ -33,24 +33,23 @@ export default function Home() {
         </Card>
 
         {/* content summary */}
-        <Card className="flex  items-center">
-          <CardHeader className="mx-4">
-            <CardTitle className="text-lg">Content Summary</CardTitle>
-            <CardDescription className="text-sm pt-4 pb-2">
-              This video appears to be a popular music video that has garnered
-              significant attention. The majority of viewers seem to enjoy the
-              content, with many expressing positive sentiments about the song
-              and the artist&rsquo;s performance. There&rsquo;s a notable trend
-              of people mentioning they&rsquo;ve been &rsquo;Rick Rolled&rsquo;,
-              suggesting the video might be part of an internet meme or joke.
-              While some viewers express disappointment or frustration, possibly
-              due to unexpectedly encountering the video, overall the reception
-              is largely positive. The video has sparked a mix of genuine
-              appreciation, nostalgic comments, and playful reactions,
-              indicating its cultural significance beyond just its musical
-              content.
-            </CardDescription>
+        <Card className="px-4 py-4">
+          <CardHeader>
+            <CardTitle className="text-lg ml-[-8px]">Content Summary</CardTitle>
           </CardHeader>
+          <CardContent className="text-sm ">
+            This video appears to be a popular music video that has garnered
+            significant attention. The majority of viewers seem to enjoy the
+            content, with many expressing positive sentiments about the song and
+            the artist&rsquo;s performance. There&rsquo;s a notable trend of
+            people mentioning they&rsquo;ve been &rsquo;Rick Rolled&rsquo;,
+            suggesting the video might be part of an internet meme or joke.
+            While some viewers express disappointment or frustration, possibly
+            due to unexpectedly encountering the video, overall the reception is
+            largely positive. The video has sparked a mix of genuine
+            appreciation, nostalgic comments, and playful reactions, indicating
+            its cultural significance beyond just its musical content.
+          </CardContent>
         </Card>
 
         {/* Top Keywords */}
