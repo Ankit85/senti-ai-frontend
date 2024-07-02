@@ -37,7 +37,7 @@ export default function Home() {
           <CardHeader>
             <CardTitle className="text-lg ml-[-8px]">Content Summary</CardTitle>
           </CardHeader>
-          <CardContent className="text-sm ">
+          <CardContent className="">
             This video appears to be a popular music video that has garnered
             significant attention. The majority of viewers seem to enjoy the
             content, with many expressing positive sentiments about the song and
