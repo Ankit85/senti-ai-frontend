@@ -1,16 +1,14 @@
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-} from "@/components/ui/card";
-import { BadgeCheckIcon } from "lucide-react";
 import AnalyzeCard from "@/components/AnalyzeCard";
+import ContentSummaryCard from "@/components/ContentSummaryCard";
+import TopKeyword from "@/components/TopKeyword";
+import { useState } from "react";
 
 export default function Home() {
+
+
+
   return (
     <div className="min-h-screen bg-slate-800 pt-6">
       <div className="p-4 container max-w-2xl space-y-4">
@@ -26,23 +24,10 @@ export default function Home() {
         <AnalyzeCard />
 
         {/* content summary */}
-     
+        <ContentSummaryCard />
 
         {/* Top Keywords */}
-        <Card className="px-4 py-4">
-          <CardHeader className="">
-            <CardTitle className="text-lg">Top Keywords</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ul className="list-disc pl-5">
-              <li>awesome (50 occurrences)</li>
-              <li>love (45 occurrences)</li>
-              <li>great (40 occurrences) </li>
-              <li>meh (25 occurrences) </li>
-              <li>disappointing (30 occurrences) </li>
-            </ul>
-          </CardContent>
-        </Card>
+        <TopKeyword />
       </div>
     </div>
   );
