@@ -8,6 +8,7 @@ import {
   CardContent,
 } from "@/components/ui/card";
 import { BadgeCheckIcon } from "lucide-react";
+import AnalyzeCard from "@/components/AnalyzeCard";
 
 export default function Home() {
   return (
@@ -22,15 +23,7 @@ export default function Home() {
         </div>
 
         {/* card complete */}
-        <Card className="flex  items-center">
-          <BadgeCheckIcon className="ml-4" />
-          <CardHeader>
-            <CardTitle className="text-lg">Analysis Complete</CardTitle>
-            <CardDescription className="text-sm">
-              Analyzed 1000 comments from YouTube
-            </CardDescription>
-          </CardHeader>
-        </Card>
+        <AnalyzeCard />
 
         {/* content summary */}
         <Card className="px-4 py-4">
