@@ -3,14 +3,18 @@ import AnalyzeCard from "@/components/AnalyzeCard";
 import ContentSummaryCard from "@/components/ContentSummaryCard";
 import TopKeyword from "@/components/TopKeyword";
 import InputCard from "@/components/InputCard";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Loader from "@/components/Loader";
 
 export default function Home() {
   const [data, setData] = useState<String | null>(null);
+  const [isLoading, setLoading] = useState<Boolean>(false);
 
   const handleUrlCall = async (inputUrl: string, setErrMsg: any) => {
     if (inputUrl.includes("youtube")) {
+      setLoading(true);
       setErrMsg(null);
+      setData("");
       const videoId = inputUrl.split("v=")[1];
 
       console.log("videoId ==> ", videoId);
@@ -21,6 +25,7 @@ export default function Home() {
         const finalUrl = YOUTUBE_URL + "/analyse/youtube/" + videoId;
         console.log("Final url ==> ", finalUrl);
         const response = await fetch(finalUrl);
+
         if (!response.ok) {
           throw new Error(`Response status: ${response.status}`);
         }
@@ -30,9 +35,12 @@ export default function Home() {
         console.log("JSON RES ==> ", data);
       } catch (error: any) {
         console.error("error while calling api ==> ", error.message);
+      } finally {
+        setLoading(false);
       }
     } else {
       setErrMsg("Please Enter Youtube URL");
+      setLoading(false);
     }
   };
 
@@ -44,14 +52,21 @@ export default function Home() {
         {/* input with btn */}
         <InputCard handleUrlCall={handleUrlCall} />
 
+        {/* Loading */}
+        {isLoading && (
+          <>
+            <Loader />
+          </>
+        )}
+
         {/* card complete */}
-        <AnalyzeCard data={data} />
+        {data && <AnalyzeCard data={data} />}
 
         {/* content summary */}
         {data && <ContentSummaryCard data={data} />}
 
         {/* Top Keywords */}
-        {<TopKeyword data={data}/>}
+        {data && <TopKeyword data={data} />}
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ const TopKeyword = ({ data }: { data: any }) => {
           {data &&
             data.keywords.map((item: any) => {
               return (
-                <li key={item}>
+                <li key={item.keyword}>
                   {item.keyword} ({item.count} occurrences)
                 </li>
               );
