@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
 
-const TopKeyword = () => {
+const TopKeyword = ({ data }: { data: any }) => {
   return (
     <Card className="px-4 py-4">
       <CardHeader className="">
@@ -9,11 +9,14 @@ const TopKeyword = () => {
       </CardHeader>
       <CardContent>
         <ul className="list-disc pl-5">
-          <li>awesome (50 occurrences)</li>
-          <li>love (45 occurrences)</li>
-          <li>great (40 occurrences) </li>
-          <li>meh (25 occurrences) </li>
-          <li>disappointing (30 occurrences) </li>
+          {data &&
+            data.keywords.map((item: any) => {
+              return (
+                <li key={item}>
+                  {item.keyword} ({item.count} occurrences)
+                </li>
+              );
+            })}
         </ul>
       </CardContent>
     </Card>
