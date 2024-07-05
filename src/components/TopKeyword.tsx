@@ -10,7 +10,7 @@ const TopKeyword = ({ data }: { data: any }) => {
       <CardContent>
         <ul className="list-disc pl-5">
           {data &&
-            data.keywords.map((item: any) => {
+            data?.topKeywords?.slice(0, 5).map((item: any) => {
               return (
                 <li key={item.keyword}>
                   {item.keyword} ({item.count} occurrences)

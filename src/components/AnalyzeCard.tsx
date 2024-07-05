@@ -11,8 +11,7 @@ const AnalyzeCard = ({ data }: { data: any }) => {
       <CardHeader>
         <CardTitle className="text-lg">Analysis Complete</CardTitle>
         <CardDescription className="text-sm">
-          Analyzed {data && data?.summary?.total_length} comments from
-          YouTube
+          Analyzed {data && data?.summary?.totalComments} comments from YouTube
         </CardDescription>
       </CardHeader>
     </Card>
