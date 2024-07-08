@@ -5,6 +5,7 @@ import TopKeyword from "@/components/TopKeyword";
 import InputCard from "@/components/InputCard";
 import { useState } from "react";
 import Loader from "@/components/Loader";
+import CustomBarChart from "@/components/BarChart";
 
 export default function Home() {
   const [data, setData] = useState<String | null>(null);
@@ -67,6 +68,9 @@ export default function Home() {
 
         {/* Top Keywords */}
         {data && <TopKeyword data={data} />}
+
+        {/* Bar chart */}
+        {data && <CustomBarChart data={data} />}
       </div>
     </div>
   );

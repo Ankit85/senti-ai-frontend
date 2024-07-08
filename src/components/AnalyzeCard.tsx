@@ -6,7 +6,7 @@ import { Card, CardHeader, CardTitle, CardDescription } from "./ui/card";
 const AnalyzeCard = ({ data }: { data: any }) => {
   console.log("data inside analyzed card", data);
   return (
-    <Card className="flex  items-center">
+    <Card className="flex items-center ">
       <BadgeCheckIcon className="ml-4" />
       <CardHeader>
         <CardTitle className="text-lg">Analysis Complete</CardTitle>

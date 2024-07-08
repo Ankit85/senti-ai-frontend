@@ -5,7 +5,9 @@ const TopKeyword = ({ data }: { data: any }) => {
   return (
     <Card className="px-4 py-4">
       <CardHeader className="">
-        <CardTitle className="text-lg">Top Keywords</CardTitle>
+        <CardTitle className="text-lg">
+          Top 5 Keywords used in comments
+        </CardTitle>
       </CardHeader>
       <CardContent>
         <ul className="list-disc pl-5">
