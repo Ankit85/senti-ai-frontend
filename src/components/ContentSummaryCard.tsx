@@ -7,7 +7,7 @@ const ContentSummaryCard = ({ data }: { data: any }) => {
       <CardHeader>
         <CardTitle className="text-lg ml-[-8px]">Content Summary</CardTitle>
       </CardHeader>
-      <CardContent className=""> {data?.summaryText}</CardContent>
+      <CardContent className="text-slate-600"> {data?.summaryText}</CardContent>
     </Card>
   );
 };

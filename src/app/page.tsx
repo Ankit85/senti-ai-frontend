@@ -6,41 +6,40 @@ import InputCard from "@/components/InputCard";
 import { useState } from "react";
 import Loader from "@/components/Loader";
 import CustomBarChart from "@/components/BarChart";
+import { isYoutubeUrl, getYoutubeVideoId } from "@/lib/helper";
 
 export default function Home() {
   const [data, setData] = useState<String | null>(null);
   const [isLoading, setLoading] = useState<Boolean>(false);
 
   const handleUrlCall = async (inputUrl: string, setErrMsg: any) => {
-    if (inputUrl.includes("youtube")) {
-      setLoading(true);
-      setErrMsg(null);
-      setData("");
-      const videoId = inputUrl.split("v=")[1];
-
-      console.log("videoId ==> ", videoId);
-
-      const YOUTUBE_URL = "https://senti-ai-backend.onrender.com";
-      // const YOUTUBE_URL = "http://localhost:8000";
-      try {
-        const finalUrl = YOUTUBE_URL + "/analyse/youtube/" + videoId;
-        console.log("Final url ==> ", finalUrl);
-        const response = await fetch(finalUrl);
-
-        if (!response.ok) {
-          throw new Error(`Response status: ${response.status}`);
-        }
-
-        const jsonRes = await response.json();
-        setData(jsonRes.data);
-        console.log("JSON RES ==> ", data);
-      } catch (error: any) {
-        console.error("error while calling api ==> ", error.message);
-      } finally {
-        setLoading(false);
-      }
-    } else {
+    const YOUTUBE_URL = "https://senti-ai-backend.onrender.com";
+    /*  if (YOUTUBE_URL === undefined) {
+      throw new Error("YOUTUBE_URL is not undefined");
+    } */
+    if (!isYoutubeUrl(inputUrl)) {
       setErrMsg("Please Enter Youtube URL");
+      setLoading(false);
+      return;
+    }
+    setLoading(true);
+    setErrMsg(null);
+    setData(null);
+    try {
+      const videoId = getYoutubeVideoId(inputUrl);
+      const finalUrl = YOUTUBE_URL + "/analyse/youtube/" + videoId;
+      console.log("Final url ==> ", finalUrl);
+      const response = await fetch(finalUrl);
+
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+
+      const jsonRes = await response.json();
+      setData(jsonRes.data);
+    } catch (error: any) {
+      console.error("error while calling api ==> ", error.message);
+    } finally {
       setLoading(false);
     }
   };
