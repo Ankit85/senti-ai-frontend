@@ -10,7 +10,7 @@ const TopKeyword = ({ data }: { data: any }) => {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <ul className="list-disc pl-5">
+        <ul className="list-disc pl-5 text-slate-600">
           {data &&
             data?.topKeywords?.slice(0, 5).map((item: any) => {
               return (
